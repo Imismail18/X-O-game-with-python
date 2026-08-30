@@ -1,18 +1,19 @@
 import turtle
 
+
 top = [
     [
-        (-40, 120), 
-        (-70, 260), 
-        (-130, 230), 
-        (-170, 200), 
-        (-170, 100), 
-        (-160, 40), 
-        (-170, 10), 
-        (-150, -10), 
-        (-140, 10), 
-        (-40, -20), 
-        (0, -20)
+        (-40, 120),
+        (-70, 260),
+        (-130, 230),
+        (-170, 200),
+        (-170, 100),
+        (-160, 40),
+        (-170, 10),
+        (-150, -10),
+        (-140, 10),
+        (-40, -20),
+        (0, -20),
     ],
     [
         (0, -20),
@@ -26,8 +27,8 @@ top = [
         (130, 230),
         (70, 260),
         (40, 120),
-        (0, 120)
-    ]
+        (0, 120),
+    ],
 ]
 
 middle = [
@@ -43,10 +44,10 @@ middle = [
         (-110, -210),
         (-80, -230),
         (-64, -210),
-        (0, -210)
+        (0, -210),
     ],
     [
-        (0, -210), 
+        (0, -210),
         (64, -210),
         (80, -230),
         (110, -210),
@@ -57,9 +58,9 @@ middle = [
         (130, -40),
         (100, -46),
         (50, -40),
-        (40, -30), 
-        (0, -30)
-    ]
+        (40, -30),
+        (0, -30),
+    ],
 ]
 
 bottom = [
@@ -72,7 +73,7 @@ bottom = [
         (-60, -260),
         (-30, -260),
         (-20, -250),
-        (0, -250)
+        (0, -250),
     ],
     [
         (0, -250),
@@ -84,36 +85,34 @@ bottom = [
         (110, -220),
         (80, -240),
         (60, -220),
-        (0, -220)
-    ]
+        (0, -220),
+    ],
 ]
+
+
+def draw_face(part_details, start_point):
+    """Draws one face section using a list of polygon points and fills it."""
+    # Time complexity: O(n), where n is the number of vertices in the shape.
+    turtle.penup()
+    turtle.goto(start_point)
+    turtle.pendown()
+    turtle.color("#fab104")
+
+    turtle.begin_fill()
+    for points in part_details:
+        for x, y in points:
+            turtle.goto(x, y)
+    turtle.end_fill()
+
 
 turtle.hideturtle()
 turtle.bgcolor("#ba161e")
 turtle.setup(500, 600)
+turtle.speed(1)
 
 top_start = (0, 120)
 middle_start = (0, -30)
 bottom_start = (0, -220)
-
-turtle.speed(1)
-
-def draw_face(part_details, start_point):
-    turtle.penup()
-    turtle.goto(start_point)
-    turtle.pendown()
-
-    turtle.color("#fab104")
-
-    turtle.begin_fill()
-    for i in range(len(part_details[0])):
-        x, y = part_details[0][i]
-        turtle.goto(x, y)
-
-    for i in range(len(part_details[1])):
-            x, y = part_details[1][i]
-            turtle.goto(x, y)
-    turtle.end_fill()
 
 draw_face(top, top_start)
 draw_face(middle, middle_start)

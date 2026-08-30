@@ -11,7 +11,7 @@ A simple Tic-Tac-Toe game built in Python. It supports:
 ## Project Files
 
 - `TicTacToe.py` - Main game logic
-- `test_tictactoe.py` - Basic validation tests
+- `ironman.py` - Iron Man themed game variant
 
 ## How to Run
 
