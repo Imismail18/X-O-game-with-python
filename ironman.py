@@ -100,8 +100,7 @@ def draw_face(part_details, start_point):
 
     turtle.begin_fill()
     for points in part_details:
-        for x, y in points:
-            turtle.goto(x, y)
+        for x, y in points: turtle.goto(x, y)
     turtle.end_fill()
 
 
