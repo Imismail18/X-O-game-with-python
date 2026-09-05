@@ -3,8 +3,7 @@ import os
 
 # Clears the terminal screen for a cleaner game display.
 # Time complexity: O(1)
-def clear_screen():
-    os.system("cls" if os.name == "nt" else "clear")
+def clear_screen(): os.system("cls" if os.name == "nt" else "clear")
 
 class Player:
     # Initializes a player with empty name and symbol fields.
@@ -35,8 +34,7 @@ class Player:
 
     # Stores the player's symbol in uppercase form.
     # Time complexity: O(1)
-    def set_symbol(self, symbol):
-        self.symbol = symbol.upper()
+    def set_symbol(self, symbol): self.symbol = symbol.upper()
 
 
 class ComputerPlayer(Player):
@@ -48,8 +46,7 @@ class ComputerPlayer(Player):
 
     # Ensures the computer keeps the fixed name "Computer".
     # Time complexity: O(1)
-    def choose_name(self):
-        self.name = "Computer"
+    def choose_name(self): self.name = "Computer"
 
     # Chooses a symbol different from the human player's symbol from the alphabet.
     # Time complexity: O(n), where n is the number of available letters.
@@ -67,8 +64,7 @@ class Menu:
         while True:
             try:
                 choice = int(input("\nEnter your choice: "))
-                if choice in {1, 2, 3}:
-                    return choice
+                if choice in {1, 2, 3}: return choice
                 print("Enter a valid number!")
             except ValueError as e:
                 print(f"\nError, not a valid input: {e}")
@@ -81,6 +77,7 @@ class Menu:
     def display_end_game_menu(self):
         while True:
             try:
+                
                 print("++" * 30)
                 print("\t\t\tGame Over!")
                 print("1. Restart Game")
@@ -90,8 +87,8 @@ class Menu:
 
                 if choice in {1, 2}: return choice
                 print("Enter a valid input!")
-            except ValueError as e:
-                print(f"\nError, not a valid input: {e}")
+                
+            except ValueError as e: print(f"\nError, not a valid input: {e}")
             except EOFError as e:
                 print("\nInput closed. Exiting game.")
                 raise SystemExit from e
@@ -120,13 +117,11 @@ class Board:
 
     # Checks whether a chosen cell is in range and still empty.
     # Time complexity: O(1)
-    def is_valid_move(self, choice):
-        return False if 1 <= choice <= 9 else self.board[choice - 1].isdigit()
+    def is_valid_move(self, choice): return False if 1 <= choice <= 9 else self.board[choice - 1].isdigit()
 
     # Resets the board back to its default numbered state.
     # Time complexity: O(n), where n is the board size.
-    def reset_board(self):
-        self.board = [str(i) for i in range(1, 10)]
+    def reset_board(self): self.board = [str(i) for i in range(1, 10)]
 
 class Game:
     # Initializes the game state, players, board, and menu references.
@@ -238,8 +233,7 @@ class Game:
 
     # Checks whether every cell has been filled and no moves remain.
     # Time complexity: O(n), where n is the number of cells.
-    def check_draw(self):
-       return all(not cell.isdigit() for cell in self.board.board)
+    def check_draw(self): return all(not cell.isdigit() for cell in self.board.board)
 
     # Picks a random valid move for the computer player.
     # Time complexity: O(n), where n is the number of empty cells.
@@ -264,11 +258,12 @@ class Game:
         else:
             while True:
                 try:
+                    
                     cell_choice = int(input("Choose a cell (1-9): "))
                     if 1 <= cell_choice <= 9 and self.board.update_board(cell_choice, player.symbol): break
                     else: print("Invalid move!, try agine.")
-                except ValueError as e:
-                    print("Error, invalid input, ", e)
+                        
+                except ValueError as e: print("Error, invalid input, ", e)
                 except EOFError as e:
                     print("\nInput closed. Exiting game.")
                     raise SystemExit from e
@@ -277,8 +272,7 @@ class Game:
 
     # Switches the game turn from the current player to the other player.
     # Time complexity: O(1)
-    def switch_player(self):
-        self.current_player_index = 1 - self.current_player_index
+    def switch_player(self): self.current_player_index = 1 - self.current_player_index
 
     # Displays the final farewell message and ends the game session.
     # Time complexity: O(1)
