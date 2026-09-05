@@ -26,7 +26,7 @@ python3 TicTacToe.py
 1. Choose a game mode from the main menu.
 2. Enter player names and symbols.
 3. Select a board cell from 1 to 9.
-4. Try to align three symbols in a row to win.
+4. Try to align three symbols in a row or diagnaly to win.
 
 ## Testing
 
